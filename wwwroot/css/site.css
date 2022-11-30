@@ -1,0 +1,481 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand {
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.border-top {
+    border-top: 1px solid #e5e5e5;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+    font-size: 1rem;
+    line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    line-height: 60px;
+    /* Vertically center the text there */
+}
+
+/*
+.upload__box {
+    padding: 40px;
+}
+*/
+
+.upload__inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.upload__btn {
+    display: inline-block;
+    font-weight: 600;
+    color: #fff;
+    text-align: center;
+    min-width: 116px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 2px solid;
+    background-color: #4045ba;
+    border-color: #4045ba;
+    border-radius: 10px;
+    line-height: 26px;
+    font-size: 14px;
+}
+
+.upload__btn:hover {
+    background-color: unset;
+    color: #4045ba;
+    transition: all 0.3s ease;
+}
+
+.upload__btn-box {
+    margin-bottom: 10px;
+}
+
+.upload__img-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -10px;
+}
+
+.upload__img-box {
+    width: 200px;
+    padding: 0 10px;
+    margin-bottom: 12px;
+}
+
+.upload__img-close {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    text-align: center;
+    line-height: 24px;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.upload__img-close:after {
+    content: "✕";
+    font-size: 14px;
+    color: white;
+}
+
+.img-bg {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    padding-bottom: 100%;
+}
+
+
+.strike-text {
+    color: red;
+    text-decoration: line-through;
+}
+
+.product-image {
+    width: 100%;
+}
+
+.dot {
+    height: 7px;
+    width: 7px;
+    margin-left: 6px;
+    margin-right: 6px;
+    margin-top: 3px;
+    background-color: blue;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.spec-1 {
+    font-size: 15px;
+}
+
+h5 {
+    font-weight: 400;
+}
+
+.para {
+    font-size: 16px;
+}
+
+
+
+li.active {
+    border-bottom: 3px solid silver;
+}
+
+.item-photo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: 1px solid #f6f6f6;
+}
+
+.menu-items {
+    list-style-type: none;
+    font-size: 11px;
+    display: inline-flex;
+    margin-bottom: 0;
+    margin-top: 20px
+}
+
+.btn-success {
+    width: 100%;
+    border-radius: 0;
+}
+
+
+
+
+.radio-lbl {
+    margin-bottom: .4em;
+}
+
+.order div {
+    float: left;
+    margin: 0 0 1em .5em;
+    clear: none;
+}
+
+.minus,
+.plus {
+    cursor: pointer;
+    background-color: transparent;
+    border-radius: 4px;
+    padding: 0 .5em;
+    border: none;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.orderQuantity {
+    height: 34px;
+    width: 100px;
+    text-align: center;
+    border: none !important;
+    border-bottom: solid 2px !important;
+    border-radius: 4px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+
+
+.swatch {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.swatch div {
+    padding: 0.5rem;
+}
+
+.swatch input[type="radio"] {
+    display: none;
+}
+
+.swatch input[type="radio"]:not(:disabled)~label {
+    cursor: pointer;
+}
+
+.swatch input[type="radio"]:disabled~label {
+    color: #bcc2bf;
+    border-color: #bcc2bf;
+    box-shadow: none;
+    cursor: not-allowed;
+}
+
+.swatch label {
+    height: 100%;
+    display: block;
+    border: 2px solid #086FCF;
+    border-radius: 30px;
+    padding: .5rem 0 0;
+    text-align: center;
+    box-shadow: 0px 3px 10px -2px rgba(161, 170, 166, 0.5);
+    position: relative;
+}
+
+.swatch input[type="radio"]:checked+label {
+    background: #086FCF;
+    color: white;
+    box-shadow: 0px 0px 20px rgba(8, 111, 207, 0.75);
+}
+
+.swatch input[type="radio"]:checked {
+    color: #3d3f43;
+    font-family: FontAwesome;
+    border: 2px solid #086FCF;
+    content: "\f00c";
+    font-size: 24px;
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 50px;
+    width: 50px;
+    line-height: 50px;
+    text-align: center;
+    border-radius: 30px;
+    box-shadow: 0px 2px 5px -2px rgba(0, 0, 0, 0.25);
+}
+
+
+.filter-switch label {
+    cursor: pointer;
+}
+
+.filter-switch-item input:checked+label {
+    color: inherit;
+}
+
+.filter-switch-item input:not(:checked)+label {
+    --bg-opacity: 0;
+    box-shadow: none;
+}
+
+
+.swatch-picker {
+    border: 1px solid #ccc;
+    display: inline-block;
+    width: auto;
+    padding-bottom: 30px !important;
+    padding: 20px;
+    text-align: center;
+}
+
+.swatch-picker label {
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    position: relative;
+    margin: 0 2px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+.swatch-picker span {
+    display: block;
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 30px;
+    border: 2px solid #086FCF;
+}
+
+.swatch-picker input {
+    -webkit-appearance: none;
+}
+
+.swatch-picker input:checked+span {
+    box-shadow: 0px 0px 20px rgb(8 111 207 / 75%);
+    border: 5px solid #086FCF;
+}
+
+
+
+#product-name {
+    margin-top: 2em;
+    font-weight: lighter;
+    letter-spacing: 2px;
+}
+
+
+[data-icon="ant-design:user-outlined"] {
+    font-size: 1.5em;
+}
+
+input#searchtext9 {
+    color: black;
+}
+
+
+
+.ui-slider-horizontal .ui-slider-range {
+    background-color: #f6931f;
+}
+
+.ui-widget.ui-widget-content {
+    background-color: rgba(255, 255, 255, .2);
+}
+
+input#priceRange,
+input#yearRange {
+    background-color: rgba(128, 128, 128, 0);
+}
+
+img.rounded.me-2 {
+    width: 30px;
+}
+
+.col-md-9 {
+    position: relative;
+}
+
+.mt4 {
+    z-index: 2;
+}
+
+.carousel-caption {
+    color: white !important;
+    /* text-shadow: 3px 0px 7px black, -3px 0px 7px black, 0px 4px 7px black; */
+    /* text-shadow: 3px 3px 20px black, -2px 1px 30px black; */
+    text-shadow: .1em .1em 0 hsl(200 50% 30%);
+}
+
+span.carousel-control-prev-icon,
+span.carousel-control-next-icon {
+    background-color: black;
+    padding: 1.5em;
+}
+
+.carousel-indicators {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    backdrop-filter: blur(7px);
+    padding: .5em 0;
+}
+
+img.card-img-top.invertible {
+    height: 18em;
+}
+
+button.btn.btn-outline-primary.btn-sm.mt-2.addWishlist {
+    width: 100%
+}
+
+.carousel-item img {
+    height: 53%;
+    width: auto !important;
+}
+
+
+
+
+
+@media (max-width: 426px) {
+    .container {
+        margin-top: 0px !important;
+    }
+
+    .container>.row {
+        padding: 0 !important;
+    }
+
+    .container>.row>.col-xs-12.col-sm-5 {
+        padding-right: 0;
+    }
+
+    .container>.row>.col-xs-12.col-sm-9>div>p {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    .container>.row>.col-xs-12.col-sm-9>div>ul {
+        padding-left: 10px !important;
+    }
+
+    .section {
+        width: 104%;
+    }
+
+    .menu-items {
+        padding-left: 0;
+    }
+}
+
+@media screen and (max-width: 768px) and (min-width: 575px) {
+    a.navbar-brand:after {
+        content: "SPCMS";
+    }
+
+    a.navbar-brand span {
+        display: none;
+    }
+}
