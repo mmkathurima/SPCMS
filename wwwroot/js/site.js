@@ -473,3 +473,89 @@ function confirmCheckout(me) {
     document.querySelectorAll("vbxml")[1].insertAdjacentHTML("afterbegin", `<div class="alert alert-success">Order successfully confirmed</div>`);
     me.classList.add("disabled");
 }
+
+function validatePassword(offset = 1) {
+    let first,
+        len = document.getElementById("len"),
+        upr = document.getElementById("upr"),
+        lwr = document.getElementById("lwr"),
+        spc = document.getElementById("spc"),
+        num = document.getElementById("num"),
+        match_ = document.getElementById("match"),
+        submit = document.querySelectorAll("button[type=submit]")[1],
+        isValid = true;
+    submit.classList.add("disabled");
+
+    const secondValidate = (second) => {
+        if (first.value == second.value) {
+            match_.setAttribute("icon", "mdi:tick-circle");
+        } else {
+            match_.setAttribute("icon", "gridicons:cross-circle");
+            if (!submit.classList.contains("disabled")) submit.classList.add("disabled");
+            return false;
+        }
+        submit.classList.remove("disabled");
+    };
+
+    for (let [index, i] of document.querySelectorAll("#password, #confirmPassword, #newPassword, #newPassword2").entries()) {
+        i.addEventListener("focus", function () {
+            document.getElementsByClassName("validate")[index].style.display = "block";
+        });
+        i.addEventListener("blur", function () {
+            document.getElementsByClassName("validate")[index].style.display = "none";
+        });
+        switch (index) {
+            case 0:
+                first = i;
+                i.addEventListener("input", function () {
+                    if (this.value.length >= 8) {
+                        len.setAttribute("icon", "mdi:tick-circle");
+                    } else {
+                        len.setAttribute("icon", "gridicons:cross-circle");
+                        if (!submit.classList.contains("disabled")) submit.classList.add("disabled");
+                        isValid = false;
+                    }
+                    if (this.value.match(/[a-z]/g)) {
+                        lwr.setAttribute("icon", "mdi:tick-circle");
+                    } else {
+                        lwr.setAttribute("icon", "gridicons:cross-circle");
+                        if (!submit.classList.contains("disabled")) submit.classList.add("disabled");
+                        isValid = false;
+                    }
+                    if (this.value.match(/[A-Z]/g)) {
+                        upr.setAttribute("icon", "mdi:tick-circle");
+                    } else {
+                        upr.setAttribute("icon", "gridicons:cross-circle");
+                        if (!submit.classList.contains("disabled")) submit.classList.add("disabled");
+                        isValid = false;
+                    }
+                    if (this.value.match(/[!@#$%^&*.]/g)) {
+                        spc.setAttribute("icon", "mdi:tick-circle");
+                    } else {
+                        spc.setAttribute("icon", "gridicons:cross-circle");
+                        if (!submit.classList.contains("disabled")) submit.classList.add("disabled");
+                        isValid = false;
+                    }
+                    if (this.value.match(/[0-9]/g)) {
+                        num.setAttribute("icon", "mdi:tick-circle");
+                    } else {
+                        num.setAttribute("icon", "gridicons:cross-circle");
+                        if (!submit.classList.contains("disabled")) submit.classList.add("disabled");
+                        isValid = false;
+                    }
+                    if (!secondValidate(document.querySelectorAll("input[type=password]")[offset]))
+                        isValid = false;
+
+                    return isValid;
+                });
+                break;
+            case 1:
+                i.addEventListener("input", function () {
+                    if (!secondValidate(this))
+                        isValid = false;
+                    return isValid;
+                });
+                break;
+        }
+    }
+}

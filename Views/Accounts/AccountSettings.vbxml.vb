@@ -10,6 +10,7 @@ Partial Public Class AccountSettingsView
         Return _
         <vbxml>
             @Html.Raw(TempData["Response"])
+            <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
             <h2>Account Settings</h2>
             <div>
                 <h5 class="fw-light">Change Password</h5>
@@ -27,12 +28,27 @@ Partial Public Class AccountSettingsView
                         <div class="valid-feedback">Valid.</div>
                         <div class="invalid-feedback">Please fill out this field.</div>
                     </div>
-
+                    <div class="validate">
+                        <p>
+                            <iconify-icon icon="gridicons:cross-circle" id="len"></iconify-icon>Password length of at least 8 characters</p>
+                        <p>
+                            <iconify-icon icon="gridicons:cross-circle" id="upr"></iconify-icon>Contains at least one uppercase letter</p>
+                        <p>
+                            <iconify-icon icon="gridicons:cross-circle" id="lwr"></iconify-icon>Contains at least one lowercase letter</p>
+                        <p>
+                            <iconify-icon icon="gridicons:cross-circle" id="spc"></iconify-icon>Contains at least one special character (!@@#$%^&amp;*).</p>
+                        <p>
+                            <iconify-icon icon="gridicons:cross-circle" id="num"></iconify-icon> Contains at least one numeric character</p>
+                    </div>
                     <div class="mb-3 mt-3">
                         <label for="quantity" class="form-label">Re-enter new password:</label>
                         <input type="password" class="form-control" id="newPassword2" placeholder="Re-enter new password" name="newPassword2" required="true"/>
                         <div class="valid-feedback">Valid.</div>
                         <div class="invalid-feedback">Please fill out this field.</div>
+                    </div>
+                    <div class="validate">
+                        <p>
+                            <iconify-icon icon="gridicons:cross-circle" id="match"></iconify-icon>Must match password</p>
                     </div>
                     <%= (Function() As XElement
                              If Session.Role = Session.Roles.SPARE_PARTS_DEALER Or Session.Role = Session.Roles.ADMIN Then
@@ -75,6 +91,7 @@ Partial Public Class AccountSettingsView
                     $("input#latitude").val("<%= latitude %>");
                     $("input#longitude").val("<%= longitude %>");
                     init_session("<%= Session.User %>", "<%= CInt(Session.Role) %>");
+                    validatePassword(2);
                 });
             </script>
         </vbxml>
