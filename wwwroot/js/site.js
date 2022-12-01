@@ -494,7 +494,9 @@ function validatePassword(offset = 1) {
             if (!submit.classList.contains("disabled")) submit.classList.add("disabled");
             return false;
         }
-        submit.classList.remove("disabled");
+        if (![len.getAttribute("icon"), upr.getAttribute("icon"), lwr.getAttribute("icon"),
+        spc.getAttribute("icon"), num.getAttribute("icon"), match_.getAttribute("icon")].includes("gridicons:cross-circle"))
+            submit.classList.remove("disabled");
     };
 
     for (let [index, i] of document.querySelectorAll("#password, #confirmPassword, #newPassword, #newPassword2").entries()) {
@@ -551,9 +553,7 @@ function validatePassword(offset = 1) {
                 break;
             case 1:
                 i.addEventListener("input", function () {
-                    if (!secondValidate(this))
-                        isValid = false;
-                    return isValid;
+                    secondValidate(this);
                 });
                 break;
         }
