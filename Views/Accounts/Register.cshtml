@@ -1,0 +1,93 @@
+﻿@{
+    ViewData["Title"] = "Register";
+}
+@Html.Raw(TempData["Response"])
+<script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
+<div class="row justify-content-center mt-5">
+    <div class="col-lg-6 col-md-10 col-sm-10">
+        <div class="card shadow">
+            <div class="card-title text-center border-bottom">
+                <h2 class="p-3">Register</h2>
+            </div>
+            <div class="card-body">
+                <form asp-controller="Accounts" asp-action="Register" method="post">
+                    <div class="mb-4">
+                        <label for="username" class="form-label">Username</label>
+                        <input type="text" class="form-control" id="username" name="username" required="required" />
+                    </div>
+                    <div class="mb-4">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="password" name="password" required="required" />
+                    </div>
+                    <div class="validate">
+                        <p>
+                            <iconify-icon icon="gridicons:cross-circle" id="len"></iconify-icon>
+                            Password length of at least 8 characters
+                        </p>
+                        <p>
+                            <iconify-icon icon="gridicons:cross-circle" id="upr"></iconify-icon>
+                            Contains at least one uppercase letter
+                        </p>
+                        <p>
+                            <iconify-icon icon="gridicons:cross-circle" id="lwr"></iconify-icon>
+                            Contains at least one lowercase letter
+                        </p>
+                        <p>
+                            <iconify-icon icon="gridicons:cross-circle" id="spc"></iconify-icon>
+                            Contains at least one special character (!&#64;#$%^&amp;*).
+                        </p>
+                        <p>
+                            <iconify-icon icon="gridicons:cross-circle" id="num"></iconify-icon>
+                            Contains at least one numeric character
+                        </p>
+                    </div>
+                    <div class="mb-4">
+                        <label for="confirmPassword" class="form-label">Re-enter Password</label>
+                        <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required="required" />
+                    </div>
+                    <div class="validate">
+                        <p>
+                            <iconify-icon icon="gridicons:cross-circle" id="match"></iconify-icon>
+                            Must match password
+                        </p>
+                    </div>
+                    <div class="mb-4">
+                        <label for="role" class="form-label">I am a</label>
+                        <select class="form-select" id="role" name="role" required="required">
+                            <option value="Consumer">Consumer</option>
+                            <option value="Spare Part Dealer">Spare Part Dealer</option>
+                        </select>
+                    </div>
+                    <div class="mb-4" id="location">
+                        <div class="row" style="display: none">
+                            <div class="col">
+                                <label for="latitude" class="form-label">Latitude</label>
+                                <input type="text" class="form-control" name="latitude" id="latitude" />
+                            </div>
+                            <div class="col">
+                                <label for="longitude" class="form-label">Longitude</label>
+                                <input type="text" class="form-control" name="longitude" id="longitude" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary">Register</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            mapping();
+            init_session("@Session.User", "@((int)Session.Role)");
+            const role = document.getElementById("role"),
+                location = document.getElementById("location");
+            location.style.display = "none";
+            role.addEventListener("input", function () {
+                location.style.display = role.value == "Consumer" ? "none" : "";
+            });
+            validatePassword();
+        });
+    </script>
+</div>
