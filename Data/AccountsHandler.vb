@@ -13,9 +13,6 @@ Public Class AccountsHandler : Inherits DbContext
     Public role As Session.Roles
     Private transaction As MySqlTransaction
 
-    'TODO: Encryption and decryption
-    'Public security As SecurityHelper = SecurityHelper.Secure
-
     Private Sub New() : End Sub
 
     Private ReadOnly Property GetConnection As MySqlConnection
@@ -33,7 +30,6 @@ Public Class AccountsHandler : Inherits DbContext
             .Parameters.AddWithValue("@username", user.UserName)
             .Prepare()
             Using reader As MySqlDataReader = .ExecuteReader
-                'TODO: Add decryption here
                 If reader.Read() Then
                     handler = New AccountsHandler() With {
                         .Valid = reader!username.ToString() = user.UserName And reader!password.ToString() = user.Password,
